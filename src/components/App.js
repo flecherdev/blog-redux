@@ -3,10 +3,15 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Nav from './Nav';
 import User from './User';
 
+const Task = () => <div>Task</div> 
+
 const App = () => (
   <BrowserRouter>
     <Nav />
-    <Route exact path='/' component={ User }/> 
+    <div className='margen'>
+      <Route exact path='/' component={ User }/> 
+      <Route exact path='/task' component={ Task }/> 
+    </div>
   </BrowserRouter>
 )
 
