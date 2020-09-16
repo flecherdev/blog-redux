@@ -1,1 +1,1 @@
-export const get_users = 'get_users'
+export const GET_USERS = 'get_users'
