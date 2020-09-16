@@ -1,7 +1,11 @@
 import axios from 'axios';
-import { GET_USERS } from '../types/usersTypes';
+import { GET_USERS, LOADING, ERROR } from '../types/usersTypes';
 
 export const getUsers = () => async (dispach) => {
+    dispach({
+        type: LOADING
+    })
+
     try {
         const resp = await axios.get('https://jsonplaceholder.typicode.com/users')
     
@@ -11,5 +15,9 @@ export const getUsers = () => async (dispach) => {
         });
     } catch (error) {
         console.log(`Error: ${error.message}`)
+        dispach({
+            type: ERROR,
+            payload: error.message
+        })
     }
 }
