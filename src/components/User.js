@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import { connect } from 'react-redux';
 import * as usersActions from '../actions/usersActions';
+import Spinner from './Spinner';
 
 class User extends Component {
 
@@ -13,6 +14,24 @@ class User extends Component {
 
   async componentDidMount() {
     this.props.getUsers()
+  }
+
+  addConten = () => {
+    if (this.props.loading) {
+      return <Spinner />
+    }
+    return (
+      <table className='table'>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Enlace</th>
+            </tr>
+          </thead>
+          <tbody>{ this.addRows() }</tbody>
+      </table>
+    )
   }
 
   addRows = () => (
@@ -30,16 +49,7 @@ class User extends Component {
     console.log(this.props.error)
     return (
       <div>
-        <table className='table'>
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Correo</th>
-              <th>Enlace</th>
-            </tr>
-          </thead>
-          <tbody>{ this.addRows() }</tbody>
-        </table>
+        { this.addConten() }
       </div>
     );
   }
