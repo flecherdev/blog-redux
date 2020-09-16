@@ -7,7 +7,8 @@ Este proyecto genera un blog con redux
 ## Depenencias
 - axios:  npm i axios
 - react router: npm i react-router-dom
-- redux: npm i redux react-redux 
+- redux: npm i redux react-redux
+- redux-thunk: npm i redux-thunk
 
 ## Available Scripts
 

@@ -1,5 +1,4 @@
 import React, { Component} from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
 import * as usersActions from '../actions/usersActions';
 
@@ -13,11 +12,6 @@ class User extends Component {
   // }
 
   async componentDidMount() {
-    // const resp = await axios.get('https://jsonplaceholder.typicode.com/users')
-    // this.setState({
-    //   usuarios: resp.data
-    // }) 
-
     this.props.getUsers()
   }
 
@@ -32,14 +26,15 @@ class User extends Component {
   );
 
   render() {
-    console.log(this.props)
     return (
       <div>
         <table className='table'>
           <thead>
-            <th>Nombre</th>
-            <th>Correo</th>
-            <th>Enlace</th>
+            <tr>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Enlace</th>
+            </tr>
           </thead>
           <tbody>{ this.addRows() }</tbody>
         </table>
