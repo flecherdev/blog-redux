@@ -5,13 +5,6 @@ import Spinner from './Spinner';
 
 class User extends Component {
 
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     usuarios: []
-  //   }
-  // }
-
   async componentDidMount() {
     this.props.getUsers()
   }
@@ -24,9 +17,9 @@ class User extends Component {
       <table className='table'>
           <thead>
             <tr>
-              <th>Nombre</th>
-              <th>Correo</th>
-              <th>Enlace</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Link</th>
             </tr>
           </thead>
           <tbody>{ this.addRows() }</tbody>
@@ -35,11 +28,11 @@ class User extends Component {
   }
 
   addRows = () => (
-    this.props.usuarios.map( (usuario) => (
-        <tr key={ usuario.id }>  
-          <td>{ usuario.name }</td>
-          <td>{ usuario.email }</td>
-          <td>{ usuario.website }</td>
+    this.props.usuarios.map( (user) => (
+        <tr key={ user.id }>  
+          <td>{ user.name }</td>
+          <td>{ user.email }</td>
+          <td>{ user.website }</td>
         </tr> 
     ))
   );
