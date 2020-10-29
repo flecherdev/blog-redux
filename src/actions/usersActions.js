@@ -17,7 +17,7 @@ export const getUsers = () => async (dispach) => {
         console.log(`Error: ${error.message}`)
         dispach({
             type: ERROR,
-            payload: error.message
+            payload: 'Algo salio mal, intente mas tarde.'
         })
     }
 }
