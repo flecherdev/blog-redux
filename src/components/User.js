@@ -2,7 +2,8 @@ import React, { Component} from 'react';
 import { connect } from 'react-redux';
 import * as usersActions from '../actions/usersActions';
 import Spinner from './Spinner';
-import Fail from './Fail'
+import Fail from './Fail';
+import Tabla from './Tabla'
 
 class User extends Component {
 
@@ -18,35 +19,13 @@ class User extends Component {
     if (this.props.error) {
       return <Fail message={ this.props.error } />
     }
-    return (
-      <table className='table'>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Link</th>
-            </tr>
-          </thead>
-          <tbody>{ this.addRows() }</tbody>
-      </table>
-    )
+    return <Tabla usuarios={this.props.usuarios}/>
   }
 
-  addRows = () => (
-    this.props.usuarios.map( (user) => (
-        <tr key={ user.id }>  
-          <td>{ user.name }</td>
-          <td>{ user.email }</td>
-          <td>{ user.website }</td>
-        </tr> 
-    ))
-  );
-
   render() {
-    console.log(this.props.loading)
-    console.log(this.props.error)
     return (
       <div>
+        <h1>Users</h1>
         { this.addConten() }
       </div>
     );
