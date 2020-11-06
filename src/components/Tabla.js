@@ -1,14 +1,20 @@
 // componente funcionar
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 
 const Tabla = (props) => {
 
-    const   addRows = () => props.usuarios.map( (user) => (
+    const   addRows = () => props.usuarios.map( (user, key) => (
         <tr key={ user.id }>  
             <td>{ user.name }</td>
             <td>{ user.email }</td>
             <td>{ user.website }</td>
+            <td>
+                <Link to={ `/publications/${key}` }>
+                    <div class="eye icon"></div>
+                </Link>
+            </td>
         </tr> 
     ));
 
